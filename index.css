@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ccc;
+}
+
+.container {
+    display: grid;
+    grid-template: 200px / 200px;
+    justify-content: center;
+    padding: 1rem 0px;
+}
+
+.item {    
+    background: 
+    /* the triangle in the bottom */
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%), 
+    /* the vertical line */
+    linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    width: 200px;
+    height: 200px;
+
+    text-align: center;
+    color: rgb(20, 45, 90);
+}
+
+.item:first-child {
+    background: 
+    /* 正中央圓點 */
+    radial-gradient(rgba(214, 158, 46, 1) 0%, rgba(214, 158, 46, 1) 3%, rgba(255, 255, 255, 0) 3%),
+    /* the triangle in the bottom */
+    linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+    /* 蓋板：上至中線 */
+    linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+    /* the vertical line */
+    linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    
+}
+
+.item:last-child {
+    background: 
+    /* 正中央圓點 */
+    radial-gradient(rgba(214, 158, 46, 1) 0%, rgba(214, 158, 46, 1) 3%, rgba(255, 255, 255, 0) 3%),
+    /* 蓋板：下至中線 */
+    linear-gradient(to top, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+    /* the vertical line */
+    linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+}
+
+.item a {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: rgb(20, 45, 90);
+    transition: all 0.3s ease 0s;
+}
+
+.item a:visited {
+    color: rgb(26, 33, 44);
+}
+
+.item a:hover {
+    color: rgb(214, 158, 46);
+    transition: all .2s ease 0;
+}
+
+.item a:active {
+    color: rgb(20, 45, 90);
+}
+
+.item .long-title {
+    font-size: 1.5rem;
+}
+
+.item .extra-long-title {
+    font-size: 1.25rem;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .container {
+        max-width: 1024px;
+        margin: 0 auto;
+
+        grid-template-columns: repeat(5, 200px);
+        grid-template-areas: 
+        "r1c1 r1c2 r1c3 r1c4 r1c5"
+        "r2c1 r2c2 r2c3 r2c4 r2c5"
+        "r3c1 r3c2 r3c3 r3c4 r3c5"
+        "r4c1 r4c2 r4c3 r4c4 r4c5"
+        "r5c1 r5c2 r5c3 r5c4 r5c5"
+        "r6c1 r6c2 r6c3 r6c4 r6c5"
+        "r7c1 r7c2 r7c3 r7c4 r7c5"
+        "r8c1 r8c2 r8c3 r8c4 r8c5"
+        "r9c1 r9c2 r9c3 r9c4 r9c5"
+        "r0c1 r0c2 r0c3 r0c4 r0c5"
+    }
+    
+    .item {
+        background:
+        /* the triangle on the right-hand side */
+        linear-gradient(to right, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    }
+
+    /* 1st row 1001-1331 */
+    .\30 1 {
+        grid-area: r1c1;
+    }
+    .\30 2 {
+        grid-area: r1c2;
+    }
+    .\30 3 {
+        grid-area: r1c3;
+    }
+    .\30 4 {
+        grid-area: r1c4;
+    }
+    .\30 5 {
+        grid-area: r1c5;
+    }
+    
+    /* 2nd row 1682-1902 */
+    .\30 6 {
+        grid-area: r2c5;
+    }
+    .\30 7 {
+        grid-area: r2c4;
+    }
+    .\30 8 {
+        grid-area: r2c3;
+    }
+    .\30 9 {
+        grid-area: r2c2;
+    }
+    .\31 0 {
+        grid-area: r2c1;
+    }
+
+    /* 3rd row 1906-1915 */
+    .\31 1 {
+        grid-area: r3c1;
+    }
+    .\31 2 {
+        grid-area: r3c2;
+    }
+    .\31 3 {
+        grid-area: r3c3;
+    }
+    .\31 4 {
+        grid-area: r3c4;
+    }
+    .\31 5 {
+        grid-area: r3c5;
+    }
+
+    /* 4th row 1915-1921 */
+    .\31 6 {
+        grid-area: r4c5;
+    }
+    .\31 7 {
+        grid-area: r4c4;
+    }
+    .\31 8 {
+        grid-area: r4c3;
+    }
+    .\31 9 {
+        grid-area: r4c2;
+    }
+    .\32 0 {
+        grid-area: r4c1;
+    }
+
+    /* 5th row 1926-1935 */
+    .\32 1 {
+        grid-area: r5c1;
+    }
+    .\32 2 {
+        grid-area: r5c2;
+    }
+    .\32 3 {
+        grid-area: r5c3;
+    }
+    .\32 4 {
+        grid-area: r5c4;
+    }
+    .\32 5 {
+        grid-area: r5c5;
+    }
+
+    /* 6th row 1937-1948 */
+    .\32 6 {
+        grid-area: r6c5;
+    }
+    .\32 7 {
+        grid-area: r6c4;
+    }
+    .\32 8 {
+        grid-area: r6c3;
+    }
+    .\32 9 {
+        grid-area: r6c2;
+    }
+    .\33 0 {
+        grid-area: r6c1;
+    }
+
+    /* 7th row 1949-1959 */
+    .\33 1 {
+        grid-area: r7c1;
+    }
+    .\33 2 {
+        grid-area: r7c2;
+    }
+    .\33 3 {
+        grid-area: r7c3;
+    }
+    .\33 4 {
+        grid-area: r7c4;
+    }
+    .\33 5 {
+        grid-area: r7c5;
+    }
+
+    /* 8th row 1961-1965 */
+    .\33 6 {
+        grid-area: r8c5;
+    }
+    .\33 7 {
+        grid-area: r8c4;
+    }
+    .\33 8 {
+        grid-area: r8c3;
+    }
+    .\33 9 {
+        grid-area: r8c2;
+    }
+    .\34 0 {
+        grid-area: r8c1;
+    }
+
+    /* 9th row 1966-1979 */
+    .\34 1 {
+        grid-area: r9c1;
+    }
+    .\34 2 {
+        grid-area: r9c2;
+    }
+    .\34 3 {
+        grid-area: r9c3;
+    }
+    .\34 4 {
+        grid-area: r9c4;
+    }
+    .\34 5 {
+        grid-area: r9c5;
+    }
+
+    /* 10th row 1981-2012 */
+    .\34 6 {
+        grid-area: r0c5;
+    }
+    .\34 7 {
+        grid-area: r0c4;
+    }
+    .\34 8 {
+        grid-area: r0c3;
+    }
+    .\34 9 {
+        grid-area: r0c2;
+    }
+    .\35 0 {
+        grid-area: r0c1;
+    }
+    
+    /* 偶數行箭頭向左 */
+    .\30 7, .\30 8, .\30 9,
+    .\31 7, .\31 8, .\31 9,
+    .\32 7, .\32 8, .\32 9,
+    .\33 7, .\33 8, .\33 9,
+    .\34 7, .\34 8, .\34 9 {
+        background: 
+        /* the triangle on the left-hand side */
+        linear-gradient(to left, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    }
+
+    /* 5, 15, 25, 35, 45格 直角下轉 */
+    .\30 5, .\31 5, .\32 5, .\33 5, .\34 5 {
+        background:
+        /* the triangle in the bottom */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* 蓋板：上至中線 */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：右至中線 */
+        linear-gradient(to left, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%),
+        /* the vertical line */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%);
+    }
+
+    /* 6, 16, 26, 36, 46格 直角承接轉左 */
+    .\30 6, .\31 6, .\32 6, .\33 6, .\34 6 {
+        background: 
+        /* the triangle on the left-hand side */
+        linear-gradient(to left, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* 蓋板：右至中線 */
+        linear-gradient(to left, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：底至中線 */
+        linear-gradient(to top, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%),
+        /* the vertical line */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%);
+    }
+
+    /* 10, 20, 30, 40格 直角下轉 */
+    .\31 0, .\32 0, .\33 0, .\34 0 {
+        background:
+        /* the triangle in the bottom */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* 蓋板：上至中線 */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：左至中線 */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%),
+        /* the vertical line */
+        linear-gradient(to right, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    }
+
+    /* 11, 21, 31, 41格 直角承接轉右 */
+    .\31 1, .\32 1, .\33 1, .\34 1 {
+        background:
+        /* the triangle on the right-hand side */
+        linear-gradient(to right, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* 蓋板：左至中線 */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：下至中線 */
+        linear-gradient(to top, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%),
+        /* the vertical line */
+        linear-gradient(to right, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 1) 50.2%);
+    }
+
+    .item:first-child {
+        background: 
+        /* 正中央圓點 */
+        radial-gradient(rgba(214, 158, 46, 1) 0%, rgba(214, 158, 46, 1) 3%, rgba(255, 255, 255, 0) 3%),
+        /* the triangle on the right-hand side */
+        linear-gradient(to right, rgba(255, 255, 255, 0) 90%, rgba(214, 158, 46, 1) 90%),
+        /* 蓋板：左至中線 */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：上至中線 */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：中線至下 */
+        linear-gradient(to top, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%);
+    }
+
+    .item:last-child {
+        background: 
+        /* 正中央圓點 */
+        radial-gradient(rgba(214, 158, 46, 1) 0%, rgba(214, 158, 46, 1) 3%, rgba(255, 255, 255, 0) 3%),
+        /* 蓋板：左至中線 */
+        linear-gradient(to right, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：上至中線 */
+        linear-gradient(to bottom, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* 蓋板：中線至下 */
+        linear-gradient(to top, rgba(255, 255, 255, 1) 49.8%, rgba(255, 255, 255, 0) 49.8%),
+        /* the horizontal line */
+        linear-gradient(to bottom, rgba(255, 255, 255, 0) 49.8%, rgba(214, 158, 46, 1) 49.8%, rgba(214, 158, 46, 1) 50.2%, rgba(255, 255, 255, 0) 50.2%);
+    }
+}
