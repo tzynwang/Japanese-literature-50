@@ -1,4 +1,4 @@
-Papa.parse("/作品列表.csv", {
+Papa.parse("./作品列表.csv", {
     header: true,
     download: true,
     complete: function (result) {
