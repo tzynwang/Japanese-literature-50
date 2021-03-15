@@ -9,7 +9,7 @@ Papa.parse("./作品列表.csv", {
 
             let aWork = document.createElement("a")
             // 建立作品<a>
-            aWorkId = `${year}-${work}-${author}-${work}`
+            aWorkId = `${work}`
             aWork.id = aWorkId
             aWork.setAttribute("href", `https://www.google.com/search?q=${work}+${author}`);
             aWork.setAttribute("target", "_blank");
@@ -34,7 +34,7 @@ Papa.parse("./作品列表.csv", {
 
             let spanYear = document.createElement("span")
             // 建立年代<span>
-            spanYearId = `${year}-${work}-${author}-${year}`
+            spanYearId = `${year}-${work}`
             spanYear.id = spanYearId
             document.getElementsByClassName(`item ${(i+1).toString().padStart(2, '0')}`)[0].appendChild(spanYear)
             // 先把年代<span>加到<div>node裡面，才能新增<span>的內容
@@ -42,7 +42,7 @@ Papa.parse("./作品列表.csv", {
 
             let spanAuthor = document.createElement("span")
             // 建立作者<span>
-            spanAuthorId = `${year}-${work}-${author}-${author}`
+            spanAuthorId = `${work}-${author}`
             spanAuthor.id = spanAuthorId
             document.getElementsByClassName(`item ${(i+1).toString().padStart(2, '0')}`)[0].appendChild(spanAuthor)
             // 先把作者<span>加到<div>node裡面，才能新增<span>的內容
