@@ -26,6 +26,8 @@ body {
     background-color: var(--white-50);
     margin: 0 auto;
     width: 240px;
+    /* 處理curtain checkbox */
+    position: relative;
 }
 
 .container {
@@ -33,6 +35,11 @@ body {
     grid-template: 200px / 200px;
     justify-content: center;
     padding: 1rem 0px;
+}
+
+#curtain, #curtainLabel {
+    position: absolute;
+    top: -2rem;
 }
 
 .item {
@@ -99,6 +106,17 @@ body {
         margin: 0 auto;
         grid-template-columns: repeat(5, 200px);
         grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5" "r2c1 r2c2 r2c3 r2c4 r2c5" "r3c1 r3c2 r3c3 r3c4 r3c5" "r4c1 r4c2 r4c3 r4c4 r4c5" "r5c1 r5c2 r5c3 r5c4 r5c5" "r6c1 r6c2 r6c3 r6c4 r6c5" "r7c1 r7c2 r7c3 r7c4 r7c5" "r8c1 r8c2 r8c3 r8c4 r8c5" "r9c1 r9c2 r9c3 r9c4 r9c5" "r0c1 r0c2 r0c3 r0c4 r0c5"
+    }
+    #curtainLabel {
+        position: absolute;
+        top: 0;
+        right: -72px;
+        display: inline-block;
+        width: 200px;
+        height: 2000px;
+        background: url(./curtain-switch.png);
+        transition: 0.5s;
+        z-index: 1000;
     }
     .item:nth-child(10n+1), .item:nth-child(10n+2), .item:nth-child(10n+3), .item:nth-child(10n+4), .item:nth-child(10n+5) {
         background: /* 箭頭向右 */
@@ -282,13 +300,25 @@ body {
     /* 窗簾 */
     .item::before {
         content: "";
-        background-color: var(--Secondary);
+        /* background-color: var(--Secondary); */
         width: 200px;
         height: 200px;
         position: absolute;
         top: 0px;
         left: 0px;
         transition: 0.4s;
+    }
+    .item:nth-child(10n+1)::before, .item:nth-child(10n+2)::before, .item:nth-child(10n+3)::before, .item:nth-child(10n+4)::before, .item:nth-child(10n+5)::before {
+        background: url(./80058915_p1-1.png);
+    }
+    .item:nth-child(10n+6)::before, .item:nth-child(10n+7)::before, .item:nth-child(10n+8)::before, .item:nth-child(10n+9)::before, .item:nth-child(10n)::before {
+        background: url(./80058915_p1-3.png);
+    }
+    .item:nth-child(5n)::before {
+        background: url(./80058915_p1-4.png);
+    }
+    .item:last-child::before {
+        background: url(./80058915_p1-6.png);
     }
     /* hover效果 */
     /* 窗簾向右 1-5 11-15 21-25 */
@@ -308,5 +338,20 @@ body {
     .item:last-child:hover::before {
         top: 0px;
         left: -200px;
+    }
+    /* 拉開窗簾效果 */
+    #curtain:checked~.container>.item::before {
+        top: -200px;
+        left: 0px;
+    }
+    #curtain:checked~.container>.item:hover::before {
+        top: -200px;
+        left: 0px;
+    }
+    #curtain:checked~#curtainLabel {
+        width: 200px;
+        height: 2000px;
+        background: url(./curtain-switch.png);
+        top: -1400px;
     }
 }
