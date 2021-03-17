@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Noto+Serif+TC:wght@300;500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +18,8 @@
   --white-100: rgba(255, 255, 255, 1);
   --white-50: rgba(255, 255, 255, 0.5);
   --transparent: rgba(255, 255, 255, 0);
+  /* 左右邊界 */
+  --padding: 48px;
 }
 
 body {
@@ -24,7 +27,7 @@ body {
 }
 
 .bg {
-  background-color: var(--white-50);
+  background-color: rgba(255, 255, 255, 0.8);
   margin: 0 auto;
   width: calc(200px + 16px * 2);
   /* 處理curtain checkbox */
@@ -83,7 +86,9 @@ body {
 }
 
 .item a {
+  font-family: "Noto Serif TC", "Noto Serif JP";
   font-size: 1.75rem;
+  font-weight: 500;
   text-decoration: none;
   color: var(--Primary);
   -webkit-transition: all 0.3s ease 0s;
@@ -112,10 +117,15 @@ body {
   font-size: 1.25rem;
 }
 
+.item span {
+  font-family: "Noto Serif TC";
+  font-weight: 300;
+}
+
 /* iPad直立 */
 @media screen and (min-width: 768px) {
   .bg {
-    width: calc(200px * 3 + 16px * 2);
+    width: calc(200px * 3 + var(--padding) * 2);
   }
   .container {
     -ms-grid-columns: (200px)[3];
@@ -383,10 +393,56 @@ body {
     -ms-grid-column: 3;
     grid-area: r17c3;
   }
+  /* 窗簾捲線 */
+  #curtainLabel {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    /* 基準點是.bg */
+    display: inline-block;
+    width: 48px;
+    height: 3200px;
+    background: url(../img/curtain-switch.png) repeat-y;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    z-index: 1000;
+  }
+  #curtainLabel::after {
+    content: "";
+    display: inline-block;
+    width: 48px;
+    height: 100px;
+    position: absolute;
+    top: 3200px;
+    right: 0px;
+    background: url(../img/curtain-tail.png);
+  }
+  /* 捲線收合 */
+  #curtain:checked ~ #curtainLabel {
+    top: -3000px;
+  }
   /* 箭頭向右 */
   .item {
     background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+    position: relative;
+  }
+  /* 窗簾 */
+  .item::before {
+    content: "";
+    background: url(../img/80058915_p1-4.png);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  /* 窗簾向右開 */
+  .item:hover::before {
+    top: 0px;
+    left: 200px;
   }
   /* 頭尾換位 */
   .c-4 {
@@ -475,112 +531,272 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-4:hover::before,
+  .c-5:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-10,
   .c-11 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-10:hover::before,
+  .c-11:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-16,
   .c-17 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-16:hover::before,
+  .c-17:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-22,
   .c-23 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-22:hover::before,
+  .c-23:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-28,
   .c-29 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-28:hover::before,
+  .c-29:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-34,
   .c-35 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-34:hover::before,
+  .c-35:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-40,
   .c-41 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-40:hover::before,
+  .c-41:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-46,
   .c-47 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-46:hover::before,
+  .c-47:hover::before {
+    top: 0px;
+    left: -200px;
   }
   /* 箭頭向下 */
   .c-3 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-3::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-3:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-6 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-6::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-6:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-9 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-9::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-9:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-12 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-12::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-12:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-15 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-15::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-15:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-18 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-18::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-18:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-21 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-21::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-21:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-24 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-24::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-24:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-27 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-27::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-27:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-30 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-30::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-30:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-33 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-33::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-33:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-36 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-36::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-36:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-39 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-39::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-39:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-42 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-42::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-42:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-45 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-45::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-45:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-48 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-48::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-48:hover::before {
+    top: 200px;
+    left: 0px;
   }
 }
 
 /* iPad橫放 */
 @media screen and (min-width: 1024px) {
   .bg {
-    width: calc(200px * 4 + 16px * 2);
+    width: calc(200px * 4 + var(--padding) * 2);
   }
   .container {
     -ms-grid-columns: (200px)[4];
@@ -858,6 +1074,26 @@ body {
     background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾捲線 */
+  #curtainLabel {
+    height: 2400px;
+  }
+  #curtainLabel::after {
+    top: 2400px;
+  }
+  /* 捲線收合 */
+  #curtain:checked ~ #curtainLabel {
+    top: -2200px;
+  }
+  /* 窗簾 */
+  .item::before {
+    background: url(../img/80058915_p1-4.png);
+  }
+  /* 窗簾向右開 */
+  .item:hover::before {
+    top: 0px;
+    left: 200px;
+  }
   /* 頭尾換位 */
   .c-5 {
     -ms-grid-row: 2;
@@ -926,11 +1162,25 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-5:hover::before,
+  .c-6:hover::before,
+  .c-7:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-13,
   .c-14,
   .c-15 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-13:hover::before,
+  .c-14:hover::before,
+  .c-15:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-21,
   .c-22,
@@ -938,11 +1188,25 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-21:hover::before,
+  .c-22:hover::before,
+  .c-23:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-29,
   .c-30,
   .c-31 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-29:hover::before,
+  .c-30:hover::before,
+  .c-31:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-37,
   .c-38,
@@ -950,67 +1214,165 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-37:hover::before,
+  .c-38:hover::before,
+  .c-39:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-45,
   .c-46,
   .c-47 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-45:hover::before,
+  .c-46:hover::before,
+  .c-47:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   /* 箭頭向下 */
   .c-4 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-4::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-4:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-8 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-8::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-8:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-12 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-12::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-12:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-16 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-16::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-16:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-20 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-20::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-20:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-24 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-24::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-24:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-28 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-28::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-28:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-32 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-32::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-32:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-36 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-36::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-36:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-40 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-40::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-40:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-44 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-44::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-44:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-48 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-48::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-48:hover::before {
+    top: 200px;
+    left: 0px;
   }
 }
 
 /* iPad Pro橫放 */
 @media screen and (min-width: 1366px) {
   .bg {
-    width: calc(200px * 5 + 16px * 2);
+    width: calc(200px * 5 + var(--padding) * 2);
   }
   .container {
     -ms-grid-columns: (200px)[5];
@@ -1278,6 +1640,26 @@ body {
     background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾捲線 */
+  #curtainLabel {
+    height: 1800px;
+  }
+  #curtainLabel::after {
+    top: 1800px;
+  }
+  /* 捲線收合 */
+  #curtain:checked ~ #curtainLabel {
+    top: -1600px;
+  }
+  /* 窗簾 */
+  .item::before {
+    background: url(../img/80058915_p1-4.png);
+  }
+  /* 窗簾向右開 */
+  .item:hover::before {
+    top: 0px;
+    left: 200px;
+  }
   /* 頭尾換位 */
   .c-6 {
     -ms-grid-row: 2;
@@ -1337,12 +1719,28 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-6:hover::before,
+  .c-7:hover::before,
+  .c-8:hover::before,
+  .c-9:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-16,
   .c-17,
   .c-18,
   .c-19 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-16:hover::before,
+  .c-17:hover::before,
+  .c-18:hover::before,
+  .c-19:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-26,
   .c-27,
@@ -1351,12 +1749,28 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-26:hover::before,
+  .c-27:hover::before,
+  .c-28:hover::before,
+  .c-29:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   .c-36,
   .c-37,
   .c-38,
   .c-39 {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 窗簾向左開 */
+  .c-36:hover::before,
+  .c-37:hover::before,
+  .c-38:hover::before,
+  .c-39:hover::before {
+    top: 0px;
+    left: -200px;
   }
   .c-46,
   .c-47,
@@ -1365,46 +1779,134 @@ body {
     background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  /* 窗簾向左開 */
+  .c-46:hover::before,
+  .c-47:hover::before,
+  .c-48:hover::before,
+  .c-49:hover::before {
+    top: 0px;
+    left: -200px;
+  }
   /* 箭頭向下 */
   .c-5 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-5::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-5:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-10 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-10::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-10:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-15 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-15::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-15:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-20 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-20::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-20:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-25 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-25::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-25:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-30 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-30::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-30:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-35 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
+  .c-35::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-35:hover::before {
+    top: 200px;
+    left: 0px;
+  }
   .c-40 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-40::before {
+    background: url(../img/80058915_p1-5.png);
+  }
+  .c-40:hover::before {
+    top: 200px;
+    left: 0px;
   }
   .c-45 {
     background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
     background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   }
-  .c-50 {
-    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
-    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  .c-45::before {
+    background: url(../img/80058915_p1-5.png);
   }
+  .c-45:hover::before {
+    top: 200px;
+    left: 0px;
+  }
+  .item:last-child:hover::before {
+    top: 0px;
+    left: -200px;
+  }
+}
+
+/* 處理第一格 */
+.item:first-child:before {
+  background: url(../img/80058915_p1-3.png);
+}
+
+/* 處理第50格 */
+.item:last-child::before {
+  background: url(../img/80058915_p1-6.png);
+}
+
+/* 拉開窗簾效果 */
+#curtain:checked ~ .container > .item::before,
+#curtain:checked ~ .container > .item:hover::before {
+  top: -200px;
+  left: 0px;
 }
 /*# sourceMappingURL=style.css.map */

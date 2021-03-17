@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Noto+Serif+TC:wght@300;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -15,6 +17,8 @@
     --white-100: rgba(255, 255, 255, 1);
     --white-50: rgba(255, 255, 255, 0.5);
     --transparent: rgba(255, 255, 255, 0);
+    /* 左右邊界 */
+    --padding: 48px;
 }
 
 body {
@@ -22,7 +26,7 @@ body {
 }
 
 .bg {
-    background-color: var(--white-50);
+    background-color: rgba(255, 255, 255, 0.8);
     margin: 0 auto;
     width: calc(200px + 16px * 2);
     /* 處理curtain checkbox */
@@ -65,7 +69,9 @@ body {
 }
 
 .item a {
+    font-family: "Noto Serif TC", "Noto Serif JP";
     font-size: 1.75rem;
+    font-weight: 500;
     text-decoration: none;
     color: var(--Primary);
     transition: all 0.3s ease 0s;
@@ -92,10 +98,15 @@ body {
     font-size: 1.25rem;
 }
 
+.item span {
+    font-family: "Noto Serif TC";
+    font-weight: 300;
+}
+
 /* iPad直立 */
 @media screen and (min-width: 768px) {
     .bg {
-        width: calc(200px * 3 + 16px * 2);
+        width: calc(200px * 3 + var(--padding) * 2);
     }
     .container {
         grid-template-columns: repeat(3, 200px);
@@ -134,9 +145,52 @@ body {
             }
         }
     }
+    /* 窗簾捲線 */
+    #curtainLabel {
+        position: absolute;
+        top: 0;
+        right: 0px; /* 基準點是.bg */
+        display: inline-block;
+        width: 48px;
+        height: 3200px;
+        background: url(../img/curtain-switch.png) repeat-y;
+        transition: 0.5s;
+        z-index: 1000;
+    }
+    #curtainLabel::after {
+        content: "";
+        display: inline-block;
+        width: 48px;
+        height: 100px;
+        position: absolute;
+        top: 3200px;
+        right: 0px;
+        background: url(../img/curtain-tail.png);
+    }
+    /* 捲線收合 */
+    #curtain:checked~#curtainLabel {
+        top: -3000px;
+    }
     /* 箭頭向右 */
     .item {
         background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+        position: relative;
+    }
+    /* 窗簾 */
+    .item::before {
+        content: "";
+        background: url(../img/80058915_p1-4.png);
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        transition: 0.4s;
+    }
+    /* 窗簾向右開 */
+    .item:hover::before {
+        top: 0px;
+        left: 200px;
     }
     /* 頭尾換位 */
     @for $i from 1 through 50 {
@@ -156,6 +210,12 @@ body {
             .c-#{$i - 1} {
                 background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            /* 窗簾向左開 */
+            .c-#{$i - 2}:hover::before,
+            .c-#{$i - 1}:hover::before {
+                top: 0px;
+                left: -200px;
+            }
         }
     }
     /* 箭頭向下 */
@@ -164,6 +224,13 @@ body {
             .c-#{$i} {
                 background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            .c-#{$i}::before {
+                background: url(../img/80058915_p1-5.png);
+            }
+            .c-#{$i}:hover::before {
+                top: 200px;
+                left: 0px;
+            }
         }
     }
 }
@@ -171,7 +238,7 @@ body {
 /* iPad橫放 */
 @media screen and (min-width: 1024px) {
     .bg {
-        width: calc(200px * 4 + 16px * 2);
+        width: calc(200px * 4 + var(--padding) * 2);
     }
     .container {
         grid-template-columns: repeat(4, 200px);
@@ -210,6 +277,26 @@ body {
     .item {
         background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
     }
+    /* 窗簾捲線 */
+    #curtainLabel {
+        height: 2400px;
+    }
+    #curtainLabel::after {
+        top: 2400px;
+    }
+    /* 捲線收合 */
+    #curtain:checked~#curtainLabel {
+        top: -2200px;
+    }
+    /* 窗簾 */
+    .item::before {
+        background: url(../img/80058915_p1-4.png);
+    }
+    /* 窗簾向右開 */
+    .item:hover::before {
+        top: 0px;
+        left: 200px;
+    }
     /* 頭尾換位 */
     @for $i from 1 through 50 {
         @if $i % 8 == 0 {
@@ -229,6 +316,13 @@ body {
             .c-#{$i - 1} {
                 background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            /* 窗簾向左開 */
+            .c-#{$i - 3}:hover::before,
+            .c-#{$i - 2}:hover::before,
+            .c-#{$i - 1}:hover::before {
+                top: 0px;
+                left: -200px;
+            }
         }
     }
     /* 箭頭向下 */
@@ -237,6 +331,13 @@ body {
             .c-#{$i} {
                 background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            .c-#{$i}::before {
+                background: url(../img/80058915_p1-5.png);
+            }
+            .c-#{$i}:hover::before {
+                top: 200px;
+                left: 0px;
+            }
         }
     }
 }
@@ -244,7 +345,7 @@ body {
 /* iPad Pro橫放 */
 @media screen and (min-width: 1366px) {
     .bg {
-        width: calc(200px * 5 + 16px * 2);
+        width: calc(200px * 5 + var(--padding) * 2);
     }
     .container {
         grid-template-columns: repeat(5, 200px);
@@ -280,6 +381,26 @@ body {
     .item {
         background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
     }
+    /* 窗簾捲線 */
+    #curtainLabel {
+        height: 1800px;
+    }
+    #curtainLabel::after {
+        top: 1800px;
+    }
+    /* 捲線收合 */
+    #curtain:checked~#curtainLabel {
+        top: -1600px;
+    }
+    /* 窗簾 */
+    .item::before {
+        background: url(../img/80058915_p1-4.png);
+    }
+    /* 窗簾向右開 */
+    .item:hover::before {
+        top: 0px;
+        left: 200px;
+    }
     /* 頭尾換位 */
     @for $i from 1 through 50 {
         @if $i % 10 == 0 {
@@ -300,14 +421,50 @@ body {
             .c-#{$i - 1} {
                 background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            /* 窗簾向左開 */
+            .c-#{$i - 4}:hover::before,
+            .c-#{$i - 3}:hover::before,
+            .c-#{$i - 2}:hover::before,
+            .c-#{$i - 1}:hover::before {
+                top: 0px;
+                left: -200px;
+            }
         }
     }
     /* 箭頭向下 */
-    @for $i from 1 through 50 {
+    @for $i from 1 through 49 {
         @if $i % 5 == 0 {
             .c-#{$i} {
                 background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
             }
+            .c-#{$i}::before {
+                background: url(../img/80058915_p1-5.png);
+            }
+            .c-#{$i}:hover::before {
+                top: 200px;
+                left: 0px;
+            }
         }
     }
+    .item:last-child:hover::before {
+        top: 0px;
+        left: -200px;
+    }
 }
+
+/* 處理第一格 */
+.item:first-child:before {
+    background: url(../img/80058915_p1-3.png);
+}
+/* 處理第50格 */
+.item:last-child::before {
+    background: url(../img/80058915_p1-6.png);
+}
+
+/* 拉開窗簾效果 */
+#curtain:checked~.container>.item::before,
+#curtain:checked~.container>.item:hover::before {
+    top: -200px;
+    left: 0px;
+}
+
