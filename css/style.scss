@@ -6,17 +6,10 @@
     box-sizing: border-box;
     /* color tickets */
     --Primary: #895b8a;
-    --Primary-light: #ba89ba;
-    --Primary-light-50: rgba(186, 137, 186, 0.5);
     --Primary-dark: #5b305d;
-    --Secondary: #8a895b;
     --Secondary-light: #bbb988;
-    --Secondary-light-50: rgba(187, 185, 136, 0.5);
     --Secondary-dark: #5c5c31;
-    /* white and transparent */
     --white-100: rgba(255, 255, 255, 1);
-    --white-50: rgba(255, 255, 255, 0.5);
-    --transparent: rgba(255, 255, 255, 0);
     /* 左右邊界 */
     --padding: 48px;
 }
@@ -29,7 +22,7 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     margin: 0 auto;
     width: calc(200px + 16px * 2);
-    /* 處理curtain checkbox */
+    /* for curtain checkbox */
     position: relative;
 }
 
