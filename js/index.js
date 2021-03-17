@@ -19,7 +19,7 @@ Papa.parse("./作品列表.csv", {
             }
             
             // 設定href與target
-            document.getElementsByClassName(`item ${(i+1).toString().padStart(2, '0')}`)[0].appendChild(aWork)
+            document.getElementsByClassName(`item c-${(i+1)}`)[0].appendChild(aWork)
             // 先把作品<a>加到<div>node裡面，才能新增<a>的內容
             // getElementsByClassName回傳的是array，故要加上[0]來取第一個元件
             // 並且對超過6個字的書名做換行處理
@@ -36,7 +36,7 @@ Papa.parse("./作品列表.csv", {
             // 建立年代<span>
             spanYearId = `${year}-${work}`
             spanYear.id = spanYearId
-            document.getElementsByClassName(`item ${(i+1).toString().padStart(2, '0')}`)[0].appendChild(spanYear)
+            document.getElementsByClassName(`item c-${(i + 1)}`)[0].appendChild(spanYear)
             // 先把年代<span>加到<div>node裡面，才能新增<span>的內容
             document.getElementById(spanYearId).innerText = `西元${year}年`
 
@@ -44,7 +44,7 @@ Papa.parse("./作品列表.csv", {
             // 建立作者<span>
             spanAuthorId = `${work}-${author}`
             spanAuthor.id = spanAuthorId
-            document.getElementsByClassName(`item ${(i+1).toString().padStart(2, '0')}`)[0].appendChild(spanAuthor)
+            document.getElementsByClassName(`item c-${(i + 1)}`)[0].appendChild(spanAuthor)
             // 先把作者<span>加到<div>node裡面，才能新增<span>的內容
             document.getElementById(spanAuthorId).innerText = author
         }
