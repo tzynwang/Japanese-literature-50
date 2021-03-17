@@ -1,13 +1,13 @@
 @font-face {
     font-family: "Noto Serif TC Medium";
-    src: local("Noto Serif TC"), url(../font/NotoSerifTC-Medium.otf);
+    src: local("Noto Serif TC Medium"), url(../font/NotoSerifTC-Medium.otf);
     font-weight: 500;
     font-display: swap;
 }
 
 @font-face {
     font-family: "Noto Serif JP Medium";
-    src: local("Noto Serif JP"), url(../font/NotoSerifJP-Medium.otf);
+    src: local("Noto Serif JP "), url(../font/NotoSerifJP-Medium.otf);
     font-weight: 500;
     font-display: swap;
 }
@@ -81,7 +81,7 @@ body {
 }
 
 .item a {
-    font-family: "Noto Serif TC", "Noto Serif JP";
+    font-family: "Noto Serif TC Medium", "Noto Serif JP Medium";
     font-size: 1.75rem;
     text-decoration: none;
     color: var(--Primary);
