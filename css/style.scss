@@ -1,0 +1,313 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* color tickets */
+    --Primary: #895b8a;
+    --Primary-light: #ba89ba;
+    --Primary-light-50: rgba(186, 137, 186, 0.5);
+    --Primary-dark: #5b305d;
+    --Secondary: #8a895b;
+    --Secondary-light: #bbb988;
+    --Secondary-light-50: rgba(187, 185, 136, 0.5);
+    --Secondary-dark: #5c5c31;
+    /* white and transparent */
+    --white-100: rgba(255, 255, 255, 1);
+    --white-50: rgba(255, 255, 255, 0.5);
+    --transparent: rgba(255, 255, 255, 0);
+}
+
+body {
+    background: url(../img/20196156_p8.png) repeat fixed;
+}
+
+.bg {
+    background-color: var(--white-50);
+    margin: 0 auto;
+    width: calc(200px + 16px * 2);
+    /* 處理curtain checkbox */
+    position: relative;
+}
+
+.container {
+    display: grid;
+    grid-template: 200px / 200px;
+    justify-content: center;
+    padding: 1rem 0px;
+}
+
+#curtain,
+#curtainLabel {
+    position: absolute;
+    top: -2rem;
+}
+
+.item {
+    /* the triangle in the bottom */
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+    /* the diamond shape */
+    background-color: var(--white-100);
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    /* display settings */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    /* text settings */
+    text-align: center;
+    color: var(--Secondary-dark);
+}
+
+.item:last-child {
+    background: var(--white-100);
+}
+
+.item a {
+    font-size: 1.75rem;
+    text-decoration: none;
+    color: var(--Primary);
+    transition: all 0.3s ease 0s;
+}
+
+.item a:visited {
+    color: var(--Primary-dark);
+}
+
+.item a:hover {
+    color: var(--Secondary-dark);
+    transition: all 0.2s ease 0;
+}
+
+.item a:active {
+    color: var(--Secondary-light);
+}
+
+.item .long-title {
+    font-size: 1.5rem;
+}
+
+.item .extra-long-title {
+    font-size: 1.25rem;
+}
+
+/* iPad直立 */
+@media screen and (min-width: 768px) {
+    .bg {
+        width: calc(200px * 3 + 16px * 2);
+    }
+    .container {
+        grid-template-columns: repeat(3, 200px);
+        grid-template-rows: repeat(17, 200px);
+    }
+    /* 挖坑時間 */
+    .container {
+        grid-template-areas:
+            "r1c1 r1c2 r1c3"
+            "r2c1 r2c2 r2c3"
+            "r3c1 r3c2 r3c3"
+            "r4c1 r4c2 r4c3"
+            "r5c1 r5c2 r5c3"
+            "r6c1 r6c2 r6c3"
+            "r7c1 r7c2 r7c3"
+            "r8c1 r8c2 r8c3"
+            "r9c1 r9c2 r9c3"
+            "r10c1 r10c2 r10c3"
+            "r11c1 r11c2 r11c3"
+            "r12c1 r12c2 r12c3"
+            "r13c1 r13c2 r13c3"
+            "r14c1 r14c2 r14c3"
+            "r15c1 r15c2 r15c3"
+            "r16c1 r16c2 r16c3"
+            "r17c1 r17c2 r17c3";
+    }
+    /* 種蘿蔔時間 */
+    $three-column-count: 1;
+    @for $r from 1 through 17 {
+        @for $c from 1 through 3 {
+            @if $three-column-count <= 51 {
+                .c-#{$three-column-count} {
+                    grid-area: r#{$r}c#{$c};
+                }
+                $three-column-count: $three-column-count + 1;
+            }
+        }
+    }
+    /* 箭頭向右 */
+    .item {
+        background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+    }
+    /* 頭尾換位 */
+    @for $i from 1 through 50 {
+        @if $i % 6 == 0 {
+            .c-#{$i - 2} {
+                grid-area: r#{$i / 3}c3;
+            }
+            .c-#{$i} {
+                grid-area: r#{$i / 3}c1;
+            }
+        }
+    }
+    /* 箭頭向左 */
+    @for $i from 1 through 50 {
+        @if $i % 6 == 0 {
+            .c-#{$i - 2},
+            .c-#{$i - 1} {
+                background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+    /* 箭頭向下 */
+    @for $i from 1 through 50 {
+        @if $i % 3 == 0 {
+            .c-#{$i} {
+                background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+}
+
+/* iPad橫放 */
+@media screen and (min-width: 1024px) {
+    .bg {
+        width: calc(200px * 4 + 16px * 2);
+    }
+    .container {
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows: repeat(13, 200px);
+    }
+    /* 挖坑時間 */
+    .container {
+        grid-template-areas:
+            "r1c1 r1c2 r1c3 r1c4"
+            "r2c1 r2c2 r2c3 r2c4"
+            "r3c1 r3c2 r3c3 r3c4"
+            "r4c1 r4c2 r4c3 r4c4"
+            "r5c1 r5c2 r5c3 r5c4"
+            "r6c1 r6c2 r6c3 r6c4"
+            "r7c1 r7c2 r7c3 r7c4"
+            "r8c1 r8c2 r8c3 r8c4"
+            "r9c1 r9c2 r9c3 r9c4"
+            "r10c1 r10c2 r10c3 r10c4"
+            "r11c1 r11c2 r11c3 r11c4"
+            "r12c1 r12c2 r12c3 r12c4"
+            "r13c1 r13c2 r13c3 r13c4";
+    }
+    /* 種蘿蔔時間 */
+    $four-column-count: 1;
+    @for $r from 1 through 13 {
+        @for $c from 1 through 4 {
+            @if $four-column-count <= 52 {
+                .c-#{$four-column-count} {
+                    grid-area: r#{$r}c#{$c};
+                }
+                $four-column-count: $four-column-count + 1;
+            }
+        }
+    }
+    /* 箭頭向右 */
+    .item {
+        background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+    }
+    /* 頭尾換位 */
+    @for $i from 1 through 50 {
+        @if $i % 8 == 0 {
+            .c-#{$i - 3} {
+                grid-area: r#{$i / 4}c4;
+            }
+            .c-#{$i} {
+                grid-area: r#{$i / 4}c1;
+            }
+        }
+    }
+    /* 箭頭向左 */
+    @for $i from 1 through 50 {
+        @if $i % 8 == 0 {
+            .c-#{$i - 3},
+            .c-#{$i - 2},
+            .c-#{$i - 1} {
+                background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+    /* 箭頭向下 */
+    @for $i from 1 through 50 {
+        @if $i % 4 == 0 {
+            .c-#{$i} {
+                background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+}
+
+/* iPad Pro橫放 */
+@media screen and (min-width: 1366px) {
+    .bg {
+        width: calc(200px * 5 + 16px * 2);
+    }
+    .container {
+        grid-template-columns: repeat(5, 200px);
+        grid-template-rows: repeat(10, 200px);
+    }
+    /* 挖坑時間 */
+    .container {
+        grid-template-areas:
+            "r1c1 r1c2 r1c3 r1c4 r1c5"
+            "r2c1 r2c2 r2c3 r2c4 r2c5"
+            "r3c1 r3c2 r3c3 r3c4 r3c5"
+            "r4c1 r4c2 r4c3 r4c4 r4c5"
+            "r5c1 r5c2 r5c3 r5c4 r5c5"
+            "r6c1 r6c2 r6c3 r6c4 r6c5"
+            "r7c1 r7c2 r7c3 r7c4 r7c5"
+            "r8c1 r8c2 r8c3 r8c4 r8c5"
+            "r9c1 r9c2 r9c3 r9c4 r9c5"
+            "r10c1 r10c2 r10c3 r10c4 r10c5";
+    }
+    /* 種蘿蔔時間 */
+    $five-column-count: 1;
+    @for $r from 1 through 10 {
+        @for $c from 1 through 5 {
+            @if $five-column-count <= 50 {
+                .c-#{$five-column-count} {
+                    grid-area: r#{$r}c#{$c};
+                }
+                $five-column-count: $five-column-count + 1;
+            }
+        }
+    }
+    /* 箭頭向右 */
+    .item {
+        background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+    }
+    /* 頭尾換位 */
+    @for $i from 1 through 50 {
+        @if $i % 10 == 0 {
+            .c-#{$i - 4} {
+                grid-area: r#{$i / 5}c5;
+            }
+            .c-#{$i} {
+                grid-area: r#{$i / 5}c1;
+            }
+        }
+    }
+    /* 箭頭向左 */
+    @for $i from 1 through 50 {
+        @if $i % 10 == 0 {
+            .c-#{$i - 4},
+            .c-#{$i - 3},
+            .c-#{$i - 2},
+            .c-#{$i - 1} {
+                background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+    /* 箭頭向下 */
+    @for $i from 1 through 50 {
+        @if $i % 5 == 0 {
+            .c-#{$i} {
+                background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+            }
+        }
+    }
+}

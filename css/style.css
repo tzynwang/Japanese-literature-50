@@ -1,0 +1,1410 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /* color tickets */
+  --Primary: #895b8a;
+  --Primary-light: #ba89ba;
+  --Primary-light-50: rgba(186, 137, 186, 0.5);
+  --Primary-dark: #5b305d;
+  --Secondary: #8a895b;
+  --Secondary-light: #bbb988;
+  --Secondary-light-50: rgba(187, 185, 136, 0.5);
+  --Secondary-dark: #5c5c31;
+  /* white and transparent */
+  --white-100: rgba(255, 255, 255, 1);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --transparent: rgba(255, 255, 255, 0);
+}
+
+body {
+  background: url(../img/20196156_p8.png) repeat fixed;
+}
+
+.bg {
+  background-color: var(--white-50);
+  margin: 0 auto;
+  width: calc(200px + 16px * 2);
+  /* 處理curtain checkbox */
+  position: relative;
+}
+
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 200px;
+  -ms-grid-columns: 200px;
+      grid-template: 200px / 200px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem 0px;
+}
+
+#curtain,
+#curtainLabel {
+  position: absolute;
+  top: -2rem;
+}
+
+.item {
+  /* the triangle in the bottom */
+  background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+  background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  /* the diamond shape */
+  background-color: var(--white-100);
+  -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+          clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  /* display settings */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
+  height: 200px;
+  /* text settings */
+  text-align: center;
+  color: var(--Secondary-dark);
+}
+
+.item:last-child {
+  background: var(--white-100);
+}
+
+.item a {
+  font-size: 1.75rem;
+  text-decoration: none;
+  color: var(--Primary);
+  -webkit-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+}
+
+.item a:visited {
+  color: var(--Primary-dark);
+}
+
+.item a:hover {
+  color: var(--Secondary-dark);
+  -webkit-transition: all 0.2s ease 0;
+  transition: all 0.2s ease 0;
+}
+
+.item a:active {
+  color: var(--Secondary-light);
+}
+
+.item .long-title {
+  font-size: 1.5rem;
+}
+
+.item .extra-long-title {
+  font-size: 1.25rem;
+}
+
+/* iPad直立 */
+@media screen and (min-width: 768px) {
+  .bg {
+    width: calc(200px * 3 + 16px * 2);
+  }
+  .container {
+    -ms-grid-columns: (200px)[3];
+        grid-template-columns: repeat(3, 200px);
+    -ms-grid-rows: (200px)[17];
+        grid-template-rows: repeat(17, 200px);
+  }
+  /* 挖坑時間 */
+  .container {
+        grid-template-areas: "r1c1 r1c2 r1c3" "r2c1 r2c2 r2c3" "r3c1 r3c2 r3c3" "r4c1 r4c2 r4c3" "r5c1 r5c2 r5c3" "r6c1 r6c2 r6c3" "r7c1 r7c2 r7c3" "r8c1 r8c2 r8c3" "r9c1 r9c2 r9c3" "r10c1 r10c2 r10c3" "r11c1 r11c2 r11c3" "r12c1 r12c2 r12c3" "r13c1 r13c2 r13c3" "r14c1 r14c2 r14c3" "r15c1 r15c2 r15c3" "r16c1 r16c2 r16c3" "r17c1 r17c2 r17c3";
+  }
+  /* 種蘿蔔時間 */
+  .c-1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: r1c1;
+  }
+  .c-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: r1c2;
+  }
+  .c-3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: r1c3;
+  }
+  .c-4 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-5 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: r2c2;
+  }
+  .c-6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: r2c3;
+  }
+  .c-7 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: r3c1;
+  }
+  .c-8 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    grid-area: r3c2;
+  }
+  .c-9 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: r3c3;
+  }
+  .c-10 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-11 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    grid-area: r4c2;
+  }
+  .c-12 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    grid-area: r4c3;
+  }
+  .c-13 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    grid-area: r5c1;
+  }
+  .c-14 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 2;
+    grid-area: r5c2;
+  }
+  .c-15 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+    grid-area: r5c3;
+  }
+  .c-16 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-17 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 2;
+    grid-area: r6c2;
+  }
+  .c-18 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 3;
+    grid-area: r6c3;
+  }
+  .c-19 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    grid-area: r7c1;
+  }
+  .c-20 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 2;
+    grid-area: r7c2;
+  }
+  .c-21 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+    grid-area: r7c3;
+  }
+  .c-22 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-23 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 2;
+    grid-area: r8c2;
+  }
+  .c-24 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    grid-area: r8c3;
+  }
+  .c-25 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+    grid-area: r9c1;
+  }
+  .c-26 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 2;
+    grid-area: r9c2;
+  }
+  .c-27 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 3;
+    grid-area: r9c3;
+  }
+  .c-28 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  .c-29 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 2;
+    grid-area: r10c2;
+  }
+  .c-30 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 3;
+    grid-area: r10c3;
+  }
+  .c-31 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 1;
+    grid-area: r11c1;
+  }
+  .c-32 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 2;
+    grid-area: r11c2;
+  }
+  .c-33 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 3;
+    grid-area: r11c3;
+  }
+  .c-34 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 1;
+    grid-area: r12c1;
+  }
+  .c-35 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 2;
+    grid-area: r12c2;
+  }
+  .c-36 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 3;
+    grid-area: r12c3;
+  }
+  .c-37 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 1;
+    grid-area: r13c1;
+  }
+  .c-38 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 2;
+    grid-area: r13c2;
+  }
+  .c-39 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 3;
+    grid-area: r13c3;
+  }
+  .c-40 {
+    -ms-grid-row: 14;
+    -ms-grid-column: 1;
+    grid-area: r14c1;
+  }
+  .c-41 {
+    -ms-grid-row: 14;
+    -ms-grid-column: 2;
+    grid-area: r14c2;
+  }
+  .c-42 {
+    -ms-grid-row: 14;
+    -ms-grid-column: 3;
+    grid-area: r14c3;
+  }
+  .c-43 {
+    -ms-grid-row: 15;
+    -ms-grid-column: 1;
+    grid-area: r15c1;
+  }
+  .c-44 {
+    -ms-grid-row: 15;
+    -ms-grid-column: 2;
+    grid-area: r15c2;
+  }
+  .c-45 {
+    -ms-grid-row: 15;
+    -ms-grid-column: 3;
+    grid-area: r15c3;
+  }
+  .c-46 {
+    -ms-grid-row: 16;
+    -ms-grid-column: 1;
+    grid-area: r16c1;
+  }
+  .c-47 {
+    -ms-grid-row: 16;
+    -ms-grid-column: 2;
+    grid-area: r16c2;
+  }
+  .c-48 {
+    -ms-grid-row: 16;
+    -ms-grid-column: 3;
+    grid-area: r16c3;
+  }
+  .c-49 {
+    -ms-grid-row: 17;
+    -ms-grid-column: 1;
+    grid-area: r17c1;
+  }
+  .c-50 {
+    -ms-grid-row: 17;
+    -ms-grid-column: 2;
+    grid-area: r17c2;
+  }
+  .c-51 {
+    -ms-grid-row: 17;
+    -ms-grid-column: 3;
+    grid-area: r17c3;
+  }
+  /* 箭頭向右 */
+  .item {
+    background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 頭尾換位 */
+  .c-4 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: r2c3;
+  }
+  .c-6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-10 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    grid-area: r4c3;
+  }
+  .c-12 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-16 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 3;
+    grid-area: r6c3;
+  }
+  .c-18 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-22 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    grid-area: r8c3;
+  }
+  .c-24 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-28 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 3;
+    grid-area: r10c3;
+  }
+  .c-30 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  .c-34 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 3;
+    grid-area: r12c3;
+  }
+  .c-36 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 1;
+    grid-area: r12c1;
+  }
+  .c-40 {
+    -ms-grid-row: 14;
+    -ms-grid-column: 3;
+    grid-area: r14c3;
+  }
+  .c-42 {
+    -ms-grid-row: 14;
+    -ms-grid-column: 1;
+    grid-area: r14c1;
+  }
+  .c-46 {
+    -ms-grid-row: 16;
+    -ms-grid-column: 3;
+    grid-area: r16c3;
+  }
+  .c-48 {
+    -ms-grid-row: 16;
+    -ms-grid-column: 1;
+    grid-area: r16c1;
+  }
+  /* 箭頭向左 */
+  .c-4,
+  .c-5 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-10,
+  .c-11 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-16,
+  .c-17 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-22,
+  .c-23 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-28,
+  .c-29 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-34,
+  .c-35 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-40,
+  .c-41 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-46,
+  .c-47 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 箭頭向下 */
+  .c-3 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-6 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-9 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-12 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-15 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-18 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-21 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-24 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-27 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-30 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-33 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-36 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-39 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-42 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-45 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-48 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+}
+
+/* iPad橫放 */
+@media screen and (min-width: 1024px) {
+  .bg {
+    width: calc(200px * 4 + 16px * 2);
+  }
+  .container {
+    -ms-grid-columns: (200px)[4];
+        grid-template-columns: repeat(4, 200px);
+    -ms-grid-rows: (200px)[13];
+        grid-template-rows: repeat(13, 200px);
+  }
+  /* 挖坑時間 */
+  .container {
+        grid-template-areas: "r1c1 r1c2 r1c3 r1c4" "r2c1 r2c2 r2c3 r2c4" "r3c1 r3c2 r3c3 r3c4" "r4c1 r4c2 r4c3 r4c4" "r5c1 r5c2 r5c3 r5c4" "r6c1 r6c2 r6c3 r6c4" "r7c1 r7c2 r7c3 r7c4" "r8c1 r8c2 r8c3 r8c4" "r9c1 r9c2 r9c3 r9c4" "r10c1 r10c2 r10c3 r10c4" "r11c1 r11c2 r11c3 r11c4" "r12c1 r12c2 r12c3 r12c4" "r13c1 r13c2 r13c3 r13c4";
+  }
+  /* 種蘿蔔時間 */
+  .c-1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: r1c1;
+  }
+  .c-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: r1c2;
+  }
+  .c-3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: r1c3;
+  }
+  .c-4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: r1c4;
+  }
+  .c-5 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: r2c2;
+  }
+  .c-7 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: r2c3;
+  }
+  .c-8 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    grid-area: r2c4;
+  }
+  .c-9 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: r3c1;
+  }
+  .c-10 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    grid-area: r3c2;
+  }
+  .c-11 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: r3c3;
+  }
+  .c-12 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+    grid-area: r3c4;
+  }
+  .c-13 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-14 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    grid-area: r4c2;
+  }
+  .c-15 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    grid-area: r4c3;
+  }
+  .c-16 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 4;
+    grid-area: r4c4;
+  }
+  .c-17 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    grid-area: r5c1;
+  }
+  .c-18 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 2;
+    grid-area: r5c2;
+  }
+  .c-19 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+    grid-area: r5c3;
+  }
+  .c-20 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 4;
+    grid-area: r5c4;
+  }
+  .c-21 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-22 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 2;
+    grid-area: r6c2;
+  }
+  .c-23 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 3;
+    grid-area: r6c3;
+  }
+  .c-24 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 4;
+    grid-area: r6c4;
+  }
+  .c-25 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    grid-area: r7c1;
+  }
+  .c-26 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 2;
+    grid-area: r7c2;
+  }
+  .c-27 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+    grid-area: r7c3;
+  }
+  .c-28 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 4;
+    grid-area: r7c4;
+  }
+  .c-29 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-30 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 2;
+    grid-area: r8c2;
+  }
+  .c-31 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    grid-area: r8c3;
+  }
+  .c-32 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 4;
+    grid-area: r8c4;
+  }
+  .c-33 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+    grid-area: r9c1;
+  }
+  .c-34 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 2;
+    grid-area: r9c2;
+  }
+  .c-35 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 3;
+    grid-area: r9c3;
+  }
+  .c-36 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 4;
+    grid-area: r9c4;
+  }
+  .c-37 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  .c-38 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 2;
+    grid-area: r10c2;
+  }
+  .c-39 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 3;
+    grid-area: r10c3;
+  }
+  .c-40 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 4;
+    grid-area: r10c4;
+  }
+  .c-41 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 1;
+    grid-area: r11c1;
+  }
+  .c-42 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 2;
+    grid-area: r11c2;
+  }
+  .c-43 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 3;
+    grid-area: r11c3;
+  }
+  .c-44 {
+    -ms-grid-row: 11;
+    -ms-grid-column: 4;
+    grid-area: r11c4;
+  }
+  .c-45 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 1;
+    grid-area: r12c1;
+  }
+  .c-46 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 2;
+    grid-area: r12c2;
+  }
+  .c-47 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 3;
+    grid-area: r12c3;
+  }
+  .c-48 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 4;
+    grid-area: r12c4;
+  }
+  .c-49 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 1;
+    grid-area: r13c1;
+  }
+  .c-50 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 2;
+    grid-area: r13c2;
+  }
+  .c-51 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 3;
+    grid-area: r13c3;
+  }
+  .c-52 {
+    -ms-grid-row: 13;
+    -ms-grid-column: 4;
+    grid-area: r13c4;
+  }
+  /* 箭頭向右 */
+  .item {
+    background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 頭尾換位 */
+  .c-5 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    grid-area: r2c4;
+  }
+  .c-8 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-13 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 4;
+    grid-area: r4c4;
+  }
+  .c-16 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-21 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 4;
+    grid-area: r6c4;
+  }
+  .c-24 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-29 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 4;
+    grid-area: r8c4;
+  }
+  .c-32 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-37 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 4;
+    grid-area: r10c4;
+  }
+  .c-40 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  .c-45 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 4;
+    grid-area: r12c4;
+  }
+  .c-48 {
+    -ms-grid-row: 12;
+    -ms-grid-column: 1;
+    grid-area: r12c1;
+  }
+  /* 箭頭向左 */
+  .c-5,
+  .c-6,
+  .c-7 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-13,
+  .c-14,
+  .c-15 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-21,
+  .c-22,
+  .c-23 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-29,
+  .c-30,
+  .c-31 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-37,
+  .c-38,
+  .c-39 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-45,
+  .c-46,
+  .c-47 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 箭頭向下 */
+  .c-4 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-8 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-12 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-16 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-20 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-24 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-28 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-32 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-36 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-40 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-44 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-48 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+}
+
+/* iPad Pro橫放 */
+@media screen and (min-width: 1366px) {
+  .bg {
+    width: calc(200px * 5 + 16px * 2);
+  }
+  .container {
+    -ms-grid-columns: (200px)[5];
+        grid-template-columns: repeat(5, 200px);
+    -ms-grid-rows: (200px)[10];
+        grid-template-rows: repeat(10, 200px);
+  }
+  /* 挖坑時間 */
+  .container {
+        grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5" "r2c1 r2c2 r2c3 r2c4 r2c5" "r3c1 r3c2 r3c3 r3c4 r3c5" "r4c1 r4c2 r4c3 r4c4 r4c5" "r5c1 r5c2 r5c3 r5c4 r5c5" "r6c1 r6c2 r6c3 r6c4 r6c5" "r7c1 r7c2 r7c3 r7c4 r7c5" "r8c1 r8c2 r8c3 r8c4 r8c5" "r9c1 r9c2 r9c3 r9c4 r9c5" "r10c1 r10c2 r10c3 r10c4 r10c5";
+  }
+  /* 種蘿蔔時間 */
+  .c-1 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    grid-area: r1c1;
+  }
+  .c-2 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+    grid-area: r1c2;
+  }
+  .c-3 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 3;
+    grid-area: r1c3;
+  }
+  .c-4 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 4;
+    grid-area: r1c4;
+  }
+  .c-5 {
+    -ms-grid-row: 1;
+    -ms-grid-column: 5;
+    grid-area: r1c5;
+  }
+  .c-6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-7 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 2;
+    grid-area: r2c2;
+  }
+  .c-8 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 3;
+    grid-area: r2c3;
+  }
+  .c-9 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 4;
+    grid-area: r2c4;
+  }
+  .c-10 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 5;
+    grid-area: r2c5;
+  }
+  .c-11 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 1;
+    grid-area: r3c1;
+  }
+  .c-12 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 2;
+    grid-area: r3c2;
+  }
+  .c-13 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 3;
+    grid-area: r3c3;
+  }
+  .c-14 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 4;
+    grid-area: r3c4;
+  }
+  .c-15 {
+    -ms-grid-row: 3;
+    -ms-grid-column: 5;
+    grid-area: r3c5;
+  }
+  .c-16 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-17 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 2;
+    grid-area: r4c2;
+  }
+  .c-18 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 3;
+    grid-area: r4c3;
+  }
+  .c-19 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 4;
+    grid-area: r4c4;
+  }
+  .c-20 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 5;
+    grid-area: r4c5;
+  }
+  .c-21 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 1;
+    grid-area: r5c1;
+  }
+  .c-22 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 2;
+    grid-area: r5c2;
+  }
+  .c-23 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 3;
+    grid-area: r5c3;
+  }
+  .c-24 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 4;
+    grid-area: r5c4;
+  }
+  .c-25 {
+    -ms-grid-row: 5;
+    -ms-grid-column: 5;
+    grid-area: r5c5;
+  }
+  .c-26 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-27 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 2;
+    grid-area: r6c2;
+  }
+  .c-28 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 3;
+    grid-area: r6c3;
+  }
+  .c-29 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 4;
+    grid-area: r6c4;
+  }
+  .c-30 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 5;
+    grid-area: r6c5;
+  }
+  .c-31 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 1;
+    grid-area: r7c1;
+  }
+  .c-32 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 2;
+    grid-area: r7c2;
+  }
+  .c-33 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 3;
+    grid-area: r7c3;
+  }
+  .c-34 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 4;
+    grid-area: r7c4;
+  }
+  .c-35 {
+    -ms-grid-row: 7;
+    -ms-grid-column: 5;
+    grid-area: r7c5;
+  }
+  .c-36 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-37 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 2;
+    grid-area: r8c2;
+  }
+  .c-38 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 3;
+    grid-area: r8c3;
+  }
+  .c-39 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 4;
+    grid-area: r8c4;
+  }
+  .c-40 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 5;
+    grid-area: r8c5;
+  }
+  .c-41 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 1;
+    grid-area: r9c1;
+  }
+  .c-42 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 2;
+    grid-area: r9c2;
+  }
+  .c-43 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 3;
+    grid-area: r9c3;
+  }
+  .c-44 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 4;
+    grid-area: r9c4;
+  }
+  .c-45 {
+    -ms-grid-row: 9;
+    -ms-grid-column: 5;
+    grid-area: r9c5;
+  }
+  .c-46 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  .c-47 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 2;
+    grid-area: r10c2;
+  }
+  .c-48 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 3;
+    grid-area: r10c3;
+  }
+  .c-49 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 4;
+    grid-area: r10c4;
+  }
+  .c-50 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 5;
+    grid-area: r10c5;
+  }
+  /* 箭頭向右 */
+  .item {
+    background: -webkit-gradient(linear, left top, right top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to right, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 頭尾換位 */
+  .c-6 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 5;
+    grid-area: r2c5;
+  }
+  .c-10 {
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    grid-area: r2c1;
+  }
+  .c-16 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 5;
+    grid-area: r4c5;
+  }
+  .c-20 {
+    -ms-grid-row: 4;
+    -ms-grid-column: 1;
+    grid-area: r4c1;
+  }
+  .c-26 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 5;
+    grid-area: r6c5;
+  }
+  .c-30 {
+    -ms-grid-row: 6;
+    -ms-grid-column: 1;
+    grid-area: r6c1;
+  }
+  .c-36 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 5;
+    grid-area: r8c5;
+  }
+  .c-40 {
+    -ms-grid-row: 8;
+    -ms-grid-column: 1;
+    grid-area: r8c1;
+  }
+  .c-46 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 5;
+    grid-area: r10c5;
+  }
+  .c-50 {
+    -ms-grid-row: 10;
+    -ms-grid-column: 1;
+    grid-area: r10c1;
+  }
+  /* 箭頭向左 */
+  .c-6,
+  .c-7,
+  .c-8,
+  .c-9 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-16,
+  .c-17,
+  .c-18,
+  .c-19 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-26,
+  .c-27,
+  .c-28,
+  .c-29 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-36,
+  .c-37,
+  .c-38,
+  .c-39 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-46,
+  .c-47,
+  .c-48,
+  .c-49 {
+    background: -webkit-gradient(linear, right top, left top, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to left, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  /* 箭頭向下 */
+  .c-5 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-10 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-15 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-20 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-25 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-30 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-35 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-40 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-45 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+  .c-50 {
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
+    background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
+  }
+}
+/*# sourceMappingURL=style.css.map */
