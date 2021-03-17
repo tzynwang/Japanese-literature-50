@@ -1,4 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&family=Noto+Serif+TC:wght@300;500&display=swap');
+@font-face {
+    font-family: "Noto Serif TC Medium";
+    src: local("Noto Serif TC"), url(../font/NotoSerifTC-Medium.otf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif JP Medium";
+    src: local("Noto Serif JP"), url(../font/NotoSerifJP-Medium.otf);
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Noto Serif TC Light";
+    src: local("Noto Serif TC Light"), url(../font/NotoSerifTC-Light.otf);
+    font-weight: 300;
+    font-display: swap;
+}
 
 * {
     margin: 0;
@@ -21,7 +40,7 @@ body {
 .bg {
     background-color: rgba(255, 255, 255, 0.8);
     margin: 0 auto;
-    width: calc(200px + 16px * 2);
+    width: calc(200px + var(--padding));
     /* for curtain checkbox */
     position: relative;
 }
@@ -64,7 +83,6 @@ body {
 .item a {
     font-family: "Noto Serif TC", "Noto Serif JP";
     font-size: 1.75rem;
-    font-weight: 500;
     text-decoration: none;
     color: var(--Primary);
     transition: all 0.3s ease 0s;
@@ -92,8 +110,7 @@ body {
 }
 
 .item span {
-    font-family: "Noto Serif TC";
-    font-weight: 300;
+    font-family: "Noto Serif TC Light";
 }
 
 /* iPad直立 */
@@ -460,4 +477,3 @@ body {
     top: -200px;
     left: 0px;
 }
-
