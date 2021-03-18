@@ -313,6 +313,12 @@ body {
             .c-#{$i - 3} {
                 grid-area: r#{$i / 4}c4;
             }
+            .c-#{$i - 2} {
+                grid-area: r#{$i / 4}c3;
+            }
+            .c-#{$i - 1} {
+                grid-area: r#{$i / 4}c2;
+            }
             .c-#{$i} {
                 grid-area: r#{$i / 4}c1;
             }
@@ -416,6 +422,12 @@ body {
         @if $i % 10 == 0 {
             .c-#{$i - 4} {
                 grid-area: r#{$i / 5}c5;
+            }
+            .c-#{$i - 3} {
+                grid-area: r#{$i / 5}c4;
+            }
+            .c-#{$i - 1} {
+                grid-area: r#{$i / 5}c2;
             }
             .c-#{$i} {
                 grid-area: r#{$i / 5}c1;
