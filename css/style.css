@@ -70,7 +70,6 @@ body {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--white-100)), color-stop(90%, var(--Secondary-dark)));
   background: linear-gradient(to bottom, var(--white-100) 0% 90%, var(--Secondary-dark) 90% 100%);
   /* the diamond shape */
-  background-color: var(--white-100);
   -webkit-clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
           clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
   /* display settings */
@@ -103,8 +102,8 @@ body {
   font-size: 1.75rem;
   text-decoration: none;
   color: var(--Primary);
-  -webkit-transition: all 0.3s ease 0s;
-  transition: all 0.3s ease 0s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .item a:visited {
@@ -113,8 +112,6 @@ body {
 
 .item a:hover {
   color: var(--Secondary-dark);
-  -webkit-transition: all 0.2s ease 0;
-  transition: all 0.2s ease 0;
 }
 
 .item a:active {
@@ -123,10 +120,6 @@ body {
 
 .item .long-title {
   font-size: 1.5rem;
-}
-
-.item .extra-long-title {
-  font-size: 1.25rem;
 }
 
 .item span {
@@ -146,7 +139,7 @@ body {
   }
   /* 挖坑時間 */
   .container {
-        grid-template-areas: "r1c1 r1c2 r1c3" "r2c1 r2c2 r2c3" "r3c1 r3c2 r3c3" "r4c1 r4c2 r4c3" "r5c1 r5c2 r5c3" "r6c1 r6c2 r6c3" "r7c1 r7c2 r7c3" "r8c1 r8c2 r8c3" "r9c1 r9c2 r9c3" "r10c1 r10c2 r10c3" "r11c1 r11c2 r11c3" "r12c1 r12c2 r12c3" "r13c1 r13c2 r13c3" "r14c1 r14c2 r14c3" "r15c1 r15c2 r15c3" "r16c1 r16c2 r16c3" "r17c1 r17c2 r17c3";
+        grid-template-areas: "r1c1 r1c2 r1c3" "r2c1 r2c2 r2c3" "r3c1 r3c2 r3c3" "r4c1 r4c2 r4c3" "r5c1 r5c2 r5c3" "r6c1 r6c2 r6c3" "r7c1 r7c2 r7c3" "r8c1 r8c2 r8c3" "r9c1 r9c2 r9c3" "r10c1 r10c2 r10c3" "r11c1 r11c2 r11c3" "r12c1 r12c2 r12c3" "r13c1 r13c2 r13c3" "r14c1 r14c2 r14c3" "r15c1 r15c2 r15c3" "r16c1 r16c2 r16c3" "r17c1 r17c2 r17c3";
   }
   /* 種蘿蔔時間 */
   .c-1 {
@@ -817,7 +810,7 @@ body {
   }
   /* 挖坑時間 */
   .container {
-        grid-template-areas: "r1c1 r1c2 r1c3 r1c4" "r2c1 r2c2 r2c3 r2c4" "r3c1 r3c2 r3c3 r3c4" "r4c1 r4c2 r4c3 r4c4" "r5c1 r5c2 r5c3 r5c4" "r6c1 r6c2 r6c3 r6c4" "r7c1 r7c2 r7c3 r7c4" "r8c1 r8c2 r8c3 r8c4" "r9c1 r9c2 r9c3 r9c4" "r10c1 r10c2 r10c3 r10c4" "r11c1 r11c2 r11c3 r11c4" "r12c1 r12c2 r12c3 r12c4" "r13c1 r13c2 r13c3 r13c4";
+        grid-template-areas: "r1c1 r1c2 r1c3 r1c4" "r2c1 r2c2 r2c3 r2c4" "r3c1 r3c2 r3c3 r3c4" "r4c1 r4c2 r4c3 r4c4" "r5c1 r5c2 r5c3 r5c4" "r6c1 r6c2 r6c3 r6c4" "r7c1 r7c2 r7c3 r7c4" "r8c1 r8c2 r8c3 r8c4" "r9c1 r9c2 r9c3 r9c4" "r10c1 r10c2 r10c3 r10c4" "r11c1 r11c2 r11c3 r11c4" "r12c1 r12c2 r12c3 r12c4" "r13c1 r13c2 r13c3 r13c4";
   }
   /* 種蘿蔔時間 */
   .c-1 {
@@ -1453,7 +1446,7 @@ body {
   }
   /* 挖坑時間 */
   .container {
-        grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5" "r2c1 r2c2 r2c3 r2c4 r2c5" "r3c1 r3c2 r3c3 r3c4 r3c5" "r4c1 r4c2 r4c3 r4c4 r4c5" "r5c1 r5c2 r5c3 r5c4 r5c5" "r6c1 r6c2 r6c3 r6c4 r6c5" "r7c1 r7c2 r7c3 r7c4 r7c5" "r8c1 r8c2 r8c3 r8c4 r8c5" "r9c1 r9c2 r9c3 r9c4 r9c5" "r10c1 r10c2 r10c3 r10c4 r10c5";
+        grid-template-areas: "r1c1 r1c2 r1c3 r1c4 r1c5" "r2c1 r2c2 r2c3 r2c4 r2c5" "r3c1 r3c2 r3c3 r3c4 r3c5" "r4c1 r4c2 r4c3 r4c4 r4c5" "r5c1 r5c2 r5c3 r5c4 r5c5" "r6c1 r6c2 r6c3 r6c4 r6c5" "r7c1 r7c2 r7c3 r7c4 r7c5" "r8c1 r8c2 r8c3 r8c4 r8c5" "r9c1 r9c2 r9c3 r9c4 r9c5" "r10c1 r10c2 r10c3 r10c4 r10c5";
   }
   /* 種蘿蔔時間 */
   .c-1 {
